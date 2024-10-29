@@ -53,5 +53,5 @@ jobs:
         with:
           browser: chrome
           build: npm run build
-          start: npm run start
+          start: npm run dev
           wait-on: "http://localhost:3000"
