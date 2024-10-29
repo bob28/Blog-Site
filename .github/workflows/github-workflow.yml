@@ -53,15 +53,8 @@ jobs:
         - name: Cypress run
           uses: cypress-io/github-action@v6
           with:
-            node-version: "22"
-       
-        - name: Install dependencies
-            run: npm install
-        
-        - name: Run Cypress tests 
             build: npm run build
             start: npm start
             wait-on: "http://localhost:3000"
             wait-on-timeout: 60
-            run: npm run cypress
-          
+          run: npm run cypress
