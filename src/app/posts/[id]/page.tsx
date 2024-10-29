@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { notFound } from "next/navigation";
 import Post from "@/src/app/components/post";
+import DarkModeToggle from "@/src/app/components/darkModeToggle";
 
 async function getPost(id: string) {
   const postsDirectory = path.join(process.cwd(), "mdFiles");
@@ -24,9 +25,12 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-10">Post: {id}</h1>
+    <main className="max-w-4xl mx-auto p-8 dark:bg-slate-800">
+      <div className="flex justify-between items-center mb-8 mb-10">
+        <h1 className="text-2xl font-bold  dark:text-white">Post: {id}</h1>
+        <DarkModeToggle />
+      </div>
       <Post content={content} />
-    </div>
+    </main>
   );
 }
