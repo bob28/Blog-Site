@@ -16,6 +16,15 @@ async function getPost(id: string) {
   }
 }
 
+export async function generateStaticParams() {
+  const postsDirectory = path.join(process.cwd(), "mdFiles");
+  const filenames = await fs.readdir(postsDirectory);
+
+  return filenames.map((filename) => ({
+    id: filename.replace(/\.md$/, ""),
+  }));
+}
+
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
   const content = await getPost(id);
