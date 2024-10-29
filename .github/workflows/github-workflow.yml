@@ -1,9 +1,6 @@
 name: CI/CD Pipeline To Test, Lint, and E2E Test
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types: [opened, synchronize, reopened]
 
