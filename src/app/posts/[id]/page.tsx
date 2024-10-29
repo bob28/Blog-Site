@@ -33,7 +33,7 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { id } = await params;
+  const { id } = params;
   const content = await getPost(id);
 
   if (!content) {
