@@ -26,14 +26,12 @@ export async function generateStaticParams() {
   }));
 }
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+type Props = {
+  params: Promise<{ id: string }>;
+};
 
-export default async function Page({ params }: PageProps) {
-  const { id } = params;
+export default async function Page({ params }: Props): Promise<JSX.Element> {
+  const { id } = await params;
   const content = await getPost(id);
 
   if (!content) {
