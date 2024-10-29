@@ -50,11 +50,14 @@ describe('Home Page Tests', () => {
     // Check if the page has the text 
     cy.get('html').should('contain', 'Post: first-post');
   });
-
   it('should render the dark mode toggle', () => {
     cy.visit('http://localhost:3000/posts/first-post');
     // Check if the dark mode toggle is present
     cy.get('button').should('have.length', 3);
   });
-
+  it("should have the word 'test' in the page", () => {
+    cy.visit('http://localhost:3000/posts/first-post');
+    // Check if the page has the text 
+    cy.get('html').should('contain', 'test');
+  });
 });
