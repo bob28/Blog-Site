@@ -26,7 +26,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function Page({ params }: PageProps) {
   const { id } = await params;
   const content = await getPost(id);
 
@@ -37,7 +43,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <main className="max-w-4xl mx-auto p-8 dark:bg-slate-800">
       <div className="flex justify-between items-center mb-8 mb-10">
-        <h1 className="text-2xl font-bold  dark:text-white">Post: {id}</h1>
+        <h1 className="text-2xl font-bold dark:text-white">Post: {id}</h1>
         <DarkModeToggle />
       </div>
       <Post content={content} />
