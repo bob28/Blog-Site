@@ -1,4 +1,4 @@
-import { expect, jest, test } from "@jest/globals";
+import { expect, jest } from "@jest/globals";
 import Home from "@/src/app/page";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";

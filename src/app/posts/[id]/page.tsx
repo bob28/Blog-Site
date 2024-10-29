@@ -12,6 +12,7 @@ async function getPost(id: string) {
     const fileContents = await fs.readFile(fullPath, "utf8");
     return fileContents;
   } catch (error) {
+    console.log(error);
     return null;
   }
 }
