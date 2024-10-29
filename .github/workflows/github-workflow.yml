@@ -48,22 +48,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        run: npm install
-        with:
-          node-version: "22"
-
-      - name: Install dependencies
-        run: npm install
-
-      -
-
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v3
         with:
+          browser: chrome
           build: npm run build
-          start: npm start
+          start: npm run start
           wait-on: "http://localhost:3000"
-          wait-on-timeout: 60
-        run: npm run cypress
